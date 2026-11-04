@@ -1,0 +1,84 @@
+# Learning Practice: Experience-Based Testing
+
+## Topics
+
+- Error guessing
+- Exploratory testing
+- Checklist-based testing
+- Acceptance testing
+
+## Learning Objectives
+
+By the end of this practice, you should be able to:
+
+- Use your experience with similar websites to predict possible failures.
+- Investigate a feature through a focused exploratory testing session.
+- Create and perform a reusable testing checklist.
+- Write acceptance criteria from an end user's perspective.
+- Determine whether a feature satisfies its acceptance criteria.
+- Record your testing clearly enough that another person can understand what you tested and what happened.
+
+
+
+## Step 1: Error Guessing
+
+For this assignment I chose Booking.
+three things that could go wrong
+    1. A booking might be created with missing dates.
+    2. A user might be able to create overlapping bookings for the same property.
+    3. The guest count might allow negative or extremely large values.
+
+## Step 2: Exploratory Testing
+
+Investigate the booking creation feature to determine whether bookings are created correctly and input validation works as expected.
+
+
+|      What I Tried       |    What Happened        | What I Decided to Try Next    |
+|-------------------------|-------------------------|-------------------------------|
+|Created a booking with valid dates | Booking was created successfully | Test blank inputs |
+|Submitted booking without dates | Validation message appeared and booking was not created |Test guest count|
+|Entered a negative guest | Negative guest count was rejected |   Test large guest counts     | 
+|Created multiple bookings| Multiple bookings were displayed correctly | Test overlapping bookings | 
+|Refreshed the page after creating a booking | Booking disappeared     |Investigate data persistence later|
+|created booking with past date | booking was created successfully | Investigate date varification|
+
+
+## Step 3: Checklist-Based Testing
+
+|       Check                          |       Result     |       Notes                     |
+|--------------------------------------|------------------|---------------------------------|
+|Create booking with valid information |       Passed     |Booking created successfully     |
+|Submit booking with missing dates     |       Passed     |Validation prevented submission  |
+|Submit booking with blank fields      |       Passed     |Error displayed                  |
+|Create multiple bookings              |       Passed     |All bookings displayed           |
+|Enter unusually large guest count     |       Passed     |Application accepted value correctly |
+|Attempt overlapping booking           |       Failed     | Created multiple overlapping bookings|
+
+## Step 4: Acceptance Testing
+
+| Given, When, Then                   |    Result    |       Notes             |
+|-------------------------------------|--------------|-------------------------|
+|Given I am on the booking form, 
+ when I enter valid booking information and submit, 
+ then a new booking should be created |  Passed      | Booking appeared in list|
+|Given I am on the booking form,
+ when I leave required fields empty and submit, 
+ then validation should prevent the booking| Passed  |  Error displayed        |
+|Given I have created a booking, 
+ when I view the booking list,
+ then the booking should be visible   | Passed       |Booking displayed correctly|
+| Given I create multiple bookings,
+ when I view the booking list,
+ then all created bookings should be displayed |Passed | Multiple bookings shown|
+|Given I select a past date, 
+ when I submit a booking, 
+ then the booking should not be created | Failed      | Booking was created using a past date |
+
+
+
+
+## Resources
+
+- [What Is Acceptance Testing?](https://agilealliance.org/glossary/acceptance-testing/)
+- [Applying BDD Acceptance Criteria in User Stories](https://www.thoughtworks.com/en-us/insights/blog/applying-bdd-acceptance-criteria-user-stories)
+
