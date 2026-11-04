@@ -58,21 +58,11 @@ Investigate the booking creation feature to determine whether bookings are creat
 
 | Given, When, Then                   |    Result    |       Notes             |
 |-------------------------------------|--------------|-------------------------|
-|Given I am on the booking form, 
- when I enter valid booking information and submit, 
- then a new booking should be created |  Passed      | Booking appeared in list|
-|Given I am on the booking form,
- when I leave required fields empty and submit, 
- then validation should prevent the booking| Passed  |  Error displayed        |
-|Given I have created a booking, 
- when I view the booking list,
- then the booking should be visible   | Passed       |Booking displayed correctly|
-| Given I create multiple bookings,
- when I view the booking list,
- then all created bookings should be displayed |Passed | Multiple bookings shown|
-|Given I select a past date, 
- when I submit a booking, 
- then the booking should not be created | Failed      | Booking was created using a past date |
+|Given I am on the booking form, when I enter valid booking information and submit, then a new booking should be created |  Passed      | Booking appeared in list |
+|Given I am on the booking form, when I leave required fields empty and submit, then validation should prevent the booking | Passed  |  Error displayed        |
+|Given I have created a booking, when I view the booking list, then the booking should be visible   | Passed       |Booking displayed correctly|
+| Given I create multiple bookings, when I view the booking list, then all created bookings should be displayed |Passed | Multiple bookings shown|
+|Given I select a past date, when I submit a booking, then the booking should not be created | Failed      | Booking was created using a past date |
 
 
 
